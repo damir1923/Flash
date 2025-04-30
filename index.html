@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlashCard Учебник</title>
+    <link rel="stylesheet" href="flash.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Добро пожаловать в FlashCard Учебник</h1>
+        <p>Выберите предмет, чтобы начать обучение</p>
+    </header>
+    <main class="container">
+        <h1>Выберите предмет</h1>
+        <div id="subject-selection">
+            <button onclick="loadSubject('math')">Математика</button>
+            <button onclick="loadSubject('history')">История</button>
+            <button onclick="loadSubject('english')">Английский</button>
+            <button onclick="loadSubject('biology')">Биология</button>
+            <button onclick="showAddQuestionForm()">Добавить новый вопрос</button>
+            <button onclick="showChatInterface()">Чат с ботом</button>
+        </div>
+
+        <div id="flashcard-area" class="hidden">
+            <div id="question"></div>
+            <div id="answers"></div>
+            <div id="explanation" class="hidden"></div>
+            <button id="next-btn" class="hidden" onclick="nextCard()">Следующий</button>
+            <button id="back-btn" class="hidden" onclick="goBack()">Назад</button>
+        </div>
+
+        <div id="add-question-area" class="hidden">
+            <h2>Добавить новый вопрос</h2>
+            <form id="add-question-form">
+                <label for="subject">Предмет:</label>
+                <select id="subject" required>
+                    <option value="math">Математика</option>
+                    <option value="history">История</option>
+                    <option value="english">Английский</option>
+                    <option value="biology">Биология</option>
+                </select>
+
+                <label for="question">Вопрос:</label>
+                <input type="text" id="question" required />
+
+                <label for="options">Варианты ответа (через запятую):</label>
+                <input type="text" id="options" required />
+
+                <label for="correct">Номер правильного ответа (начиная с 1):</label>
+                <input type="number" id="correct" min="1" required />
+
+                <label for="explanation">Объяснение:</label>
+                <textarea id="explanation" required></textarea>
+
+                <button type="submit">Добавить вопрос</button>
+            </form>
+            <button onclick="goBack()">Назад</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 FlashCard Учебник. Все права защищены.</p>
+    </footer>
+    <script src="flash.js"></script>
+</body>
+
+</html>
